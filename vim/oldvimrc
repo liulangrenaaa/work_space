@@ -1,0 +1,1080 @@
+"使用vimplug管理插件
+call plug#begin('~/.vim/plugins')
+
+"*****************
+"插件
+"ycm
+"<F5> <leader>d
+"chrisbra/csv.vim
+"junegunn/fzf
+"junegunn/fzf.vim
+"  <leader>w
+"Yggdroot/LeaderF
+"  <leader>f <leader>b <leader>t <leader>T
+"w0rp/ale
+"  <c-down> <c-up>
+"ferranpm/vim-autopairs
+"scrooloose/nerdcommenter
+"  <leader>cc <leader>cb <leader>cs <leader>cu
+"vim-scripts/DoxygenToolkit.vim
+"  <leader>d doxauthor ...
+"Chiel92/vim-autoformat
+"  <F4>
+"Yggdroot/indentLine
+"junegunn/vim-easy-align
+"  <leader>a
+"SirVer/ultisnips
+"  <leader>j <tab> <S-tab>
+"honza/vim-snippets
+"vim-airline/vim-airline
+"vim-airline/vim-airline-themes
+"kien/rainbow_parentheses.vim
+"junegunn/limelight.vim
+"  :limelight <F6>
+"junegunn/goyo.vim
+"  :goyo <F7>
+"scrooloose/nerdtree
+"  <F2>
+"majutsushi/tagbar
+"  <F3>
+"mhinz/vim-startify
+"airblade/vim-gitgutter
+"tyru/open-browser.vim
+
+
+""""""""""""""""
+" 插件管理器
+""""""""""""""""
+" 插件的快捷键以leader开头
+" 自动格式化， c/c++， python， js， html， css
+" 时间插件
+" python实时插件
+" ultisnips 快捷键
+" 注释快捷键
+" leader l
+" lb lw lf, lcc lcb lcs lcu, la, ll, ld
+" dox, goyo,
+
+
+""""""""""""""""
+" 补全插件
+""""""""""""""""
+"" ycm
+"" nvim-completion-manager
+"" deoplete deoplete-clang deoplete-go deoplete-jedi ...
+"" vim-javacomplete2 java-getset
+"" phpcomplete-extend jedi-vim
+
+
+""""" ycm
+" download binary clang from http://releases.llvm.org/download.html
+" Compile the ycm_core library that YCM needs
+" run the following:
+" cd ~
+" mkdir ycm_build
+" cd ycm_build
+" 编译完之后python版本不对， 因为编译的时候使用的是python2, 应该使用python3
+" run cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/ycm_temp/llvm_root_dir . ~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp 默认使用python2
+" 使用pyton3
+" run cmake -G "Unix Makefiles" -DPATH_TO_LLVM_ROOT=~/.vim/llvm -DUSE_PYTHON2=OFF . ~/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp
+" run cmake --build . --target ycm_core --config Release
+" 需要安装ncurses， ncurses5-compat-libs
+
+Plug 'Valloric/YouCompleteMe'
+" Go: install Go and add it to your path. Navigate to YouCompleteMe/third_party/ycmd/third_party/gocode and run go build
+
+" js: install node.js and npm, then navigate to YouCompleteMe/third_party/ycmd/third_party/tern_runtime and run npm install --production
+
+" Java support: install JDK8 (version 8 required). Download a binary release of eclipse.jdt.ls and extract it to YouCompleteMe/third_party/ycmd/third_party/eclipse.jdt.ls/target/repository. Note: this approach is not recommended for most users and is supported only for advanced users and developers of YCM on a best-efforts basis. Please use install.py to enable java support.
+
+
+" 补全参数， 改善生活
+" Plug 'tenfyzhong/CompleteParameter.vim'
+" Plug 'Shougo/echodoc.vim'
+
+""""" 按补全语言分类, 语言相关插件
+"java javacomplete2 java-getset
+Plug 'artur-shaik/vim-javacomplete2'
+
+"js
+"用一下ycm试一下
+"Plug 'marijnh/tern_for_vim'
+"需要进入tern for vim目录下运行npm install
+"之后touch .tern_project
+"写入
+"{
+
+  ""libs": [
+
+    ""browser",
+
+    ""underscore",
+
+    ""jquery"
+
+  "],
+
+  ""plugins": {
+
+  "}
+
+"}
+
+"python
+"用ycm也可以的
+Plug 'plytophogy/vim-virtualenv'
+
+"
+"bash
+"Plug 'vim-scripts/bash-support.vim'
+"
+"c/c++
+"
+"asm
+"
+"go
+"
+"latex
+"
+"markdown
+"实时预览
+"markdownpreview
+Plug 'iamcco/markdown-preview.vim'
+"Plug 'suan/vim-instant-markdown'
+"生成目录
+"gentogfc
+Plug 'mzlogin/vim-markdown-toc'
+"代码高亮
+Plug 'joker1007/vim-markdown-quote-syntax'
+"
+"
+"csv
+Plug 'chrisbra/csv.vim'
+"xml
+"Plug 'sukima/xmledit'
+"shell or bash
+
+" web相关
+" 颜色
+Plug 'gko/vim-coloresque'
+" 高亮匹配tag
+Plug 'Valloric/MatchTagAlways'
+Plug 'alvan/vim-closetag'
+"Plug 'mattn/emmet-vim'
+
+" 数据库相关
+" 干什么的？
+Plug 'vim-scripts/dbext.vim'
+
+
+""""""""""""""""
+" 搜索插件, 跳转等
+""""""""""""""""
+" fzf缺少文本搜索， 需要ag
+" fzf + ag
+" leaderf 缺少windos搜索，可以写插件， 现在两个都用
+" fzf Use ./install --bin instead if you don't need fzf outside of Vim
+"Plug 'junegunn/fzf'
+"Plug 'junegunn/fzf.vim'
+"使用choosewin
+
+" leaderf
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" or cd ~/.vim/bundle/LeaderF & ./install.sh
+
+"快速移动 leader leader
+Plug 'easymotion/vim-easymotion'
+"Plug 'haya14busa/incsearch.vim'
+
+
+""""""""""""""""
+" 对齐， 代码检测， 注释等插件
+""""""""""""""""
+" syntastic ale noemake代码检查
+"Plug 'vim-syntastic/syntastic'
+"python需要安装flake8
+Plug 'w0rp/ale'
+"Plug 'neomake/neomake'
+
+" 括号相关
+" autopairs
+"Plug 'ferranpm/vim-autopairs'
+"Plug 'Raimondi/delimitMate'
+Plug 'tpope/vim-surround'
+"自动匹配括号等
+Plug 'jiangmiao/auto-pairs'
+" 高亮括号与跳转 %
+Plug 'andymass/vim-matchup'
+
+" 快速注释与注释文档
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/DoxygenToolkit.vim'
+
+" 代码格式化对齐美化式化
+" 格式化
+" Plug "sbdchd/neoformat"
+Plug 'Chiel92/vim-autoformat'
+" 等号， 空格， 表等的对齐
+Plug 'junegunn/vim-easy-align'
+" 对齐线
+Plug 'Yggdroot/indentLine'
+"去除空白"
+Plug 'bronson/vim-trailing-whitespace'
+
+"tasklist 查看todo
+Plug 'vim-scripts/TaskList.vim'
+
+
+" 代码片段
+" neosnippet ultisnipts(引擎) vim-snippets(代码块集合)  xptemplate
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" 代码规范化
+" google python 规范化
+Plug 'harveyzh/google_python_style'
+
+
+""""""""""""""""
+" 各种美化， 阅读, 窗口管理等等
+""""""""""""""""
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+
+Plug 'kien/rainbow_parentheses.vim'
+
+" 关灯看小说
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
+
+" 暗淡不活动窗口
+"Plug 'blueyed/vim-diminactive'
+
+" 目录树
+" nerdtree
+"Plug 'scrooloose/nerdtree'
+" 目录树中显示git status
+"Plug 'Xuyuanp/nerdtree-git-plugin'
+"vimfile 依赖unite
+Plug 'Shougo/vimfiler.vim'
+Plug 'Shougo/unite.vim'
+"Plug 'd42/vimfiler_git.vim'
+
+" 窗口恢复
+"Plug 'justincampbell/vim-eighties'
+" 选择窗口，窗口交换
+Plug 't9md/vim-choosewin'
+
+" tagbar
+Plug 'majutsushi/tagbar'
+" 开始
+Plug 'mhinz/vim-startify'
+
+" 图标
+" 需要一个nerdfonts "
+Plug 'ryanoasis/vim-devicons'
+
+
+""""""""""""""""
+" 辅助工具
+""""""""""""""""
+"" 版本控制
+" git & svn
+"Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-git'
+Plug 'gregsexton/gitv'
+Plug 'airblade/vim-gitgutter'
+
+"" 异步执行
+"Plug 'skywind3000/asyncrun.vim'
+
+"" 字典
+Plug 'iamcco/dict.vim'
+
+"" vim根
+Plug 'airblade/vim-rooter'
+
+"" alt按键
+"Plug 'vim-utils/vim-alt-mappings'
+Plug 'vim-scripts/fixkey'
+
+"" gtd
+"Plug 'phb1/gtd.vim'
+
+" 菜单
+"Plug 'skywind3000/quickmenu.vim'
+Plug 'luzhlon/popup.vim'
+" vimwiki
+" Plug 'vimwiki/vimwiki'
+" 日期
+Plug 'itchyny/calendar.vim'
+
+" 二进制 查看器，直接输入vinarise
+Plug 'Shougo/vinarise.vim'
+
+" 画图
+Plug 'vim-scripts/DrawIt'
+
+"""""""""""""""
+" 网络工具
+"""""""""""""""
+"ftp
+"ssh
+
+"" 博客笔记
+
+"" 打开网址
+Plug 'tyru/open-browser.vim'
+
+
+""""""""""""""
+" other "
+"""""""""""""
+" 一款游戏 "
+Plug 'johngrib/vim-game-code-break'
+" 浏览hacknews "
+Plug 'vim-scripts/vim-hackernews'
+
+
+call plug#end()
+
+
+
+"""""""""""""""""""""""""插件配置""""""""""""""""""""""""
+
+"*********************************
+"base
+"*********************************
+
+" 鼠标
+set mouse=a
+set background=light
+"colorscheme zenburn
+"colorscheme desert
+"colorscheme gruvbox
+"colorscheme PaperColor
+"colorscheme neonwave
+"colorscheme solarized
+
+"分割线, 一定要在主题之后
+"hi VertSplit term=reverse cterm=none gui=none guibg=Grey guifg=White
+"背景透明
+"hi Normal ctermfg=none ctermbg=none
+"高亮行"
+set cursorline
+"hi CursorLine cterm=underline ctermbg=NONE ctermfg=NONE
+"分割线形状
+" '┆' " ¦, ┆, │, ⎸, ▏
+set fillchars=vert:¦
+
+set encoding=utf8
+
+set helplang=cn
+set number
+set numberwidth=4
+set shiftround
+set relativenumber
+
+set smartindent
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set showmatch
+set linebreak
+
+set ignorecase
+set incsearch
+set hlsearch
+
+"set foldenable
+
+let autosave=10
+
+" 中文提示
+"language messages zh_CN.utf-8
+
+"开启csshtml自动完成
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+"let mapleader = ","
+inoremap jk <esc>
+inoremap ;; <esc>:
+nnoremap ;; <esc>:
+
+" 切换传窗口
+" 用ctrl w + s, v, n
+"nnoremap sp <ESC>:sp<CR>
+"nnoremap sv <ESC>:vsp<CR>
+
+"inoremap q <esc>:close<cr>
+nnoremap q <esc>:close<cr>
+vnoremap q <esc>:close<cr>
+
+"noremap <S-Down>	<C-W>-
+"noremap <S-Up>			<C-W>+
+"noremap <S-Left>	<C-W><
+"noremap <S-Right>	<C-W>>
+
+" ctrl + w +hijk
+"nnoremap <M-j>		<C-W>j
+"nnoremap <M-k>  	<C-W>k
+"nnoremap <M-h>		<C-W>h
+"nnoremap <M-l>  	<C-W>l
+
+" 切换到下一个tab
+"nnoremap <M-n>		gt
+"nnoremap <M-p>		gT
+" 关闭tab
+"nnoremap <M-c>		tabc
+
+
+
+set wildmenu
+"set modifiable
+
+"*********************************
+"ycm
+"*********************************
+""" 配置
+let g:ycm_server_python_interpreter = '/usr/bin/python'
+" python3语义补全
+let g:ycm_python_binary_path = '/usr/bin/python'
+
+" 原本位于~/.vim/plugins/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py
+let g:ycm_global_ycm_extra_conf='~/.vim/.ycm_extra_conf.py'
+
+"离开插入模式后自动关闭预览窗口
+autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+"回车即选中当前项
+"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+
+"let g:ycm_error_symbol = '>>' "✖✘ㄨ✕✕
+"let g:ycm_warning_symbol = '--' "◯➤
+" 不显示提示信息， 使用ale
+let g:ycm_show_diagnostics_ui = 0
+
+
+"在注释输入中也能补全
+let g:ycm_complete_in_comments = 1
+"在字符串输入中也能补全
+let g:ycm_complete_in_strings = 1
+"注释和字符串中的文字也会被收入补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 0
+"关闭加载.ycm_extra_conf.py提示
+let g:ycm_confirm_extra_conf=0
+" 开启 YCM 基于标签引擎
+let g:ycm_collect_identifiers_from_tags_files=1
+" 从第2个键入字符就开始罗列匹配项
+let g:ycm_min_num_of_chars_for_completion=1
+" 禁止缓存匹配项,每次都重新生成匹配项
+let g:ycm_cache_omnifunc=0
+" 语法关键字补全
+let g:ycm_seed_identifiers_with_syntax=1
+
+" YCM 类型黑白名单， 哪些文件关闭开启YCM， 默认所有
+" let g:ycm_filetype_whitelist = { '*': 1 }
+" let g:ycm_filetype_blacklist = {
+"      \ 'tagbar' : 1,
+"      \ 'qf' : 1,
+"      \ 'notes' : 1,
+"      \ 'markdown' : 1,
+"      \ 'unite' : 1,
+"      \ 'text' : 1,
+"      \ 'vimwiki' : 1,
+"      \ 'pandoc' : 1,
+"      \ 'infolog' : 1,
+"      \ 'mail' : 1
+"      \}
+
+
+"function! s:CustomizeYcmQuickFixWindow()
+	"" Move the window to the top of the screen.
+	"" wincmd K
+	"" bottom
+	"wincmd J
+	"" Set the window height to 5.
+	"5wincmd _
+"endfunction
+"autocmd User YcmQuickFixOpened call s:CustomizeYcmQuickFixWindow()
+
+"let g:ycm_add_preview_to_completeopt = 0
+"let g:ycm_autoclose_preview_window_after_completion = 1
+"let g:ycm_autoclose_preview_window_after_insertion = 1
+
+
+""" color
+"highlight YcmErrorLine guibg=#3f0000
+
+""" 快捷键
+" 刷新提示
+"nnoremap <F5> :YcmForceCompileAndDiagnostics<CR>
+" 修复错误
+"inoremap <leader>f :YcmCompleter FixIt<CR>
+"nnoremap <leader>f :YcmCompleter FixIt<CR>
+
+" 跳转
+" 默认好像是ctrl+.
+nnoremap <leader>g :YcmCompleter GoToDefinitionElseDeclaration<CR>
+"nnoremap <leader>lo :lopen<CR>
+"nnoremap <leader>lc :lclose<CR>
+"inoremap <leader><leader> <C-x><C-o>
+
+
+
+"*********************************
+"javacomplete2
+"*********************************
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
+"To enable smart (trying to guess import option) inserting class imports with F4, add:
+"nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+"imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+
+"To enable usual (will ask for import option) inserting class imports with F5, add:
+"nmap <F5> <Plug>(JavaComplete-Imports-Add)
+"imap <F5> <Plug>(JavaComplete-Imports-Add)
+
+"To add all missing imports with F6:
+"nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+"imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+
+"To remove all unused imports with F7:
+"nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+"imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+
+
+"nmap <leader>jI <Plug>(JavaComplete-Imports-AddMissing)
+"nmap <leader>jR <Plug>(JavaComplete-Imports-RemoveUnused)
+"nmap <leader>ji <Plug>(JavaComplete-Imports-AddSmart)
+"nmap <leader>jii <Plug>(JavaComplete-Imports-Add)
+
+"imap <C-j>I <Plug>(JavaComplete-Imports-AddMissing)
+"imap <C-j>R <Plug>(JavaComplete-Imports-RemoveUnused)
+"imap <C-j>i <Plug>(JavaComplete-Imports-AddSmart)
+"imap <C-j>ii <Plug>(JavaComplete-Imports-Add)
+
+"nmap <leader>jM <Plug>(JavaComplete-Generate-AbstractMethods)
+
+"imap <C-j>jM <Plug>(JavaComplete-Generate-AbstractMethods)
+
+"nmap <leader>jA <Plug>(JavaComplete-Generate-Accessors)
+"nmap <leader>js <Plug>(JavaComplete-Generate-AccessorSetter)
+"nmap <leader>jg <Plug>(JavaComplete-Generate-AccessorGetter)
+"nmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
+"nmap <leader>jts <Plug>(JavaComplete-Generate-ToString)
+"nmap <leader>jeq <Plug>(JavaComplete-Generate-EqualsAndHashCode)
+"nmap <leader>jc <Plug>(JavaComplete-Generate-Constructor)
+"nmap <leader>jcc <Plug>(JavaComplete-Generate-DefaultConstructor)
+"imap <C-j>s <Plug>(JavaComplete-Generate-AccessorSetter)
+"imap <C-j>g <Plug>(JavaComplete-Generate-AccessorGetter)
+"imap <C-j>a <Plug>(JavaComplete-Generate-AccessorSetterGetter)
+"vmap <leader>js <Plug>(JavaComplete-Generate-AccessorSetter)
+"vmap <leader>jg <Plug>(JavaComplete-Generate-AccessorGetter)
+"vmap <leader>ja <Plug>(JavaComplete-Generate-AccessorSetterGetter)
+
+"nmap <silent> <buffer> <leader>jn <Plug>(JavaComplete-Generate-NewClass)
+"nmap <silent> <buffer> <leader>jN <Plug>(JavaComplete-Generate-ClassInFile)
+
+
+"*********************************
+"ale
+"*********************************
+" ale 怎么才能快捷键打开错误警告列表呢， 并且随着移动而移动呢
+" 检查python好像得安装flake8或者autopep8
+" Completion 不知道跟ycm冲不冲突
+"let g:ale_completion_enabled = 1
+"let g:ale_fix_on_save = 1
+
+" Go To Definition
+" c系好像用ycm比较好， js用这个？
+" :ALEGoToDefinition
+
+" 在状态栏显示
+let g:airline#extensions#ale#enabled = 1
+
+" keep the sign gutter open
+let g:ale_sign_column_always = 1
+
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '◉'
+"清除颜色
+highlight clear ALEErrorSign
+highlight clear ALEWarningSign
+let g:ale_set_highlights = 0
+
+"在vim自带的状态栏中整合ale
+"let g:ale_statusline_format = ['✖ %d', '◉ %d', '✔ OK']
+
+" 更改警告与错误输出格式
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+"对C/C++使用Clang进行语法检查
+let g:ale_linters = {'c': 'clang'}
+let g:ale_linters = {'c++': 'clang++'}
+
+" 只有在保存时才检查 "
+" Write this in your vimrc file
+"let g:ale_lint_on_text_changed = 'never'
+" You can disable this option too
+" if you don't want linters to run on opening a file
+"let g:ale_lint_on_enter = 0
+
+" Check Python files with flake8 and pylint.
+"let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf.
+"let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespace for Python files.
+let b:ale_warn_about_trailing_whitespace = 0
+
+
+""" 快捷键
+" 快速跳转到错误等
+nmap <silent> <c-k> <Plug>(ale_previous_wrap)
+nmap <silent> <c-j> <Plug>(ale_next_wrap)
+
+let g:ale_list_open = 0
+
+" 开启关闭list
+function! Open_ale_list_toggle()
+    if g:ale_list_open
+        execute "normal! :lclose\<cr>"
+        let g:ale_list_open = 0
+    else
+        execute "normal! :lopen\<cr>"
+        let g:ale_list_open = 1
+    endif
+endfunction
+
+nnoremap <F6> :call Open_ale_list_toggle()<cr>
+
+
+
+"*********************************
+"leaderf
+"*********************************
+
+" 很强， 可以模糊搜索函数， 需要ctags
+" leader f; leader b
+"nnoremap <leader>f :LeaderfFile<CR>
+" 最近文件
+nnoremap <leader>r :LeaderfMru<CR>
+"nnoremap <M-f> :LeaderfFileFullScreen<CR>
+"
+"nnoremap <M-b> :LeaderfBufferAll<CR>
+nnoremap <M-t> :LeaderfBufTag<CR>
+nnoremap <M-T> :LeaderfBufTagAll<CR>
+"nnoremap <M-t> :LeaderfFunction<CR>
+"nnoremap <M-T> :LeaderfFunctionAll<CR>
+nnoremap <M-f> :LeaderfLine<CR>
+nnoremap <M-F> :LeaderfLineAll<CR>
+
+
+"*********************************
+"easy-motion
+"*********************************
+" 当前光标前后
+" <leader><leader>w b
+" 搜索跳转
+" <leader><leader>s
+" 行级跳转
+" <leader><leader>j k
+" 行内跳转
+" <leader><leader>h l
+"
+" Move to line
+map <Leader><leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader><leader>L <Plug>(easymotion-overwin-line)
+
+"*********************************
+"nerdcommenter
+"*********************************
+" Add spaces after comment delimiters by default
+"let g:NERDSpaceDelims = 1
+" Use compact syntax for prettified multi-line comments
+"let g:NERDCompactSexyComs = 1
+" Align line-wise comment delimiters flush left instead of following code indentation
+"let g:NERDDefaultAlign = 'left'
+" Set a language to use its alternate delimiters by default
+"let g:NERDAltDelims_java = 1
+" Add your own custom formats or override the defaults
+"let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+" Allow commenting and inverting empty lines (useful when commenting a region)
+"let g:NERDCommentEmptyLines = 1
+" Enable trimming of trailing whitespace when uncommenting
+"let g:NERDTrimTrailingWhitespace = 1
+
+
+""" 默认快捷键
+"[count]<leader>cc |NERDComComment|
+"[count]<leader>cb |NERDComAlignedComment|
+"[count]<leader>cs |NERDComSexyComment|
+"[count]<leader>cu |NERDComUncommentLine|
+
+
+"[count]<leader>cn |NERDComNestedComment|
+"[count]<leader>c<space> |NERDComToggleComment|
+"[count]<leader>cm |NERDComMinimalComment|
+"[count]<leader>ci |NERDComInvertComment|
+"[count]<leader>cy |NERDComYankComment|
+"<leader>c$ |NERDComEOLComment|
+"<leader>cA |NERDComAppendComment|
+"<leader>ca |NERDComAltDelim|
+"[count]<leader>cl
+
+
+"*********************************
+"DoxygenToolkit
+"*********************************
+" License DoxLic
+" Author DoxAuthor
+" Function/Class Dox
+" Group DoxBlock
+
+let g:DoxygenToolkit_briefTag_pre = "@brief "
+let g:DoxygenToolkit_templateParamTag_pre = "@tparam "
+let g:DoxygenToolkit_paramTag_pre = "@param "
+let g:DoxygenToolkit_returnTag = "@return "
+let g:DoxygenToolkit_throwTag_pre = "@throw " " @exception is also valid
+let g:DoxygenToolkit_fileTag = "@file "
+let g:DoxygenToolkit_dateTag = "@date "
+let g:DoxygenToolkit_authorTag = "@author "
+let g:DoxygenToolkit_versionTag = "@version "
+let g:DoxygenToolkit_blockTag = "@name "
+let g:DoxygenToolkit_classTag = "@class "
+let g:DoxygenToolkit_authorName = "fgh, redusty@163.com"
+let g:doxygen_enhanced_color = 1
+
+""" 快捷键
+nnoremap <leader>d :Dox<CR>
+
+
+"*********************************
+"vim-autoformat
+"*********************************
+"这个要用的话需要安装点东西
+"有点混乱
+"astyle（支持C, C++, C++/CLI, Objective‑C, C#和Java）
+"clang-format, 这个llvm中有了（支持C, C++,和Objective-C ）
+"python-pep8,python3-pep8,python-autopep8和yapf（Google开发的Python格式化工具）
+
+" clang format
+"let g:formatterpath = ['~/.vim/llvm/bin']
+
+
+" 自定义
+"let g:formatdef_allman = '"astyle --style=allman --pad-oper"'
+"let g:formatters_cpp = ['allman']
+"let g:formatters_c = ['allman']
+
+
+" python 需要安装yapf 或者autopep8,补全格式有 pep8, google, facebook, chromium
+let g:formatter_yapf_style = 'google'
+
+" 对于未知文件，将使用默认值，除非下面的都设置为0
+"let g:autoformat_autoindent = 0
+"let g:autoformat_retab = 0
+"let g:autoformat_remove_trailing_spaces = 0
+
+let g:autoformat_verbosemode=1
+
+
+"""快捷键
+" 保存前格式化
+"au BufWrite * :Autoformat
+noremap <F4> :Autoformat<CR>
+"
+"noremap <F4> :call FormatCode()<CR>
+
+
+"********************************
+"indentline
+"********************************
+let g:indentLine_enabled = 1
+"let g:indentLine_setColors = 0
+let g:indentLine_char = '┆' " ¦, ┆, │, ⎸, ▏
+let g:indentLine_color_term = 242
+
+
+"*******************************
+"vim-easy-align
+"*******************************
+"快速对其，等于号等的对齐
+""" 快捷键
+nmap ea <Plug>(EasyAlign)
+xmap ea <Plug>(EasyAlign)
+
+
+"*******************************
+"ultisnips
+"*******************************
+" 快捷键需要整理一下
+let g:UltiSnipsSnippetsDir = '~/.vim/plugins/vim-snippets'
+" Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
+let g:UltiSnipsExpandTrigger="<leader>d"
+"<C-b>跳转的到下一个代码块可编辑区
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+"<C-z>跳转到上一个代码块可编辑区
+let g:UltiSnipsJumpBackwardTrigger="<S-tab>"
+
+"弹出UltiSnips的可用列表,由于不常用, 所以这里设置成了特殊的<C-i>映射
+let g:UltiSnipsListSnippets="<C-i>"
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+
+
+
+"*********************************
+"airline
+"*********************************
+"theme
+"let g:airline_theme='base16_atelierforest'
+let g:airline_theme="papercolor"
+
+let g:airline_powerline_fonts = 1
+
+" tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" 设置tabline的分隔
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
+
+" 设置tab路径显示格式
+" default jsformatter unique_tail unique_tail_improved
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+let g:airline_powerline_fonts = 1
+
+
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type= 2
+let g:airline#extensions#tabline#show_tab_type = 1
+let g:airline#extensions#tabline#buffers_label = 'BUFFERS'
+let g:airline#extensions#tabline#tabs_label = 'TABS'
+
+nmap <c-p> <Plug>AirlineSelectPrevTab
+nmap <c-n> <Plug>AirlineSelectNextTab
+
+
+"*********************************
+"rainbow_parentheses
+"*********************************
+let g:rainbow_active = 1
+
+let g:rbpt_colorpairs = [
+			\ ['brown',       'RoyalBlue3'],
+			\ ['Darkblue',    'SeaGreen3'],
+			\ ['darkgray',    'DarkOrchid3'],
+			\ ['darkgreen',   'firebrick3'],
+			\ ['darkcyan',    'RoyalBlue3'],
+			\ ['darkred',     'SeaGreen3'],
+			\ ['darkmagenta', 'DarkOrchid3'],
+			\ ['brown',       'firebrick3'],
+			\ ['gray',        'RoyalBlue3'],
+			\ ['black',       'SeaGreen3'],
+			\ ['darkmagenta', 'DarkOrchid3'],
+			\ ['Darkblue',    'firebrick3'],
+			\ ['darkgreen',   'RoyalBlue3'],
+			\ ['darkcyan',    'SeaGreen3'],
+			\ ['darkred',     'DarkOrchid3'],
+			\ ['red',         'firebrick3'],
+			\ ]
+
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 0
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
+
+
+"*********************************
+"limelight
+"*********************************
+" 颜色无法识别时
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+
+
+" 结合goyo
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+""" 快捷键
+"nmap <F6> <Plug>(Limelight)
+"xmap <F6> <Plug>(Limelight)
+
+let g:lime_light_open = 0
+function! LimelightToggle()
+	if g:lime_light_open
+		execute ":Limelight!"
+		let g:lime_light_open = 0
+	else
+		execute ":Limelight"
+		let g:lime_light_open = 1
+	endif
+endfunction
+
+nnoremap <F7> :call LimelightToggle()<cr>
+
+
+"*********************************
+"goyo
+"*********************************
+""" 快捷键
+nnoremap <F8> :Goyo<CR>
+
+
+"*********************************
+" vimfiler
+"*********************************
+"let g:vimfiler_as_default_explorer = 1
+
+" x默认应用打开
+" 关闭安全模式可以进行下面的操作
+" r – 重命名光标位置下的文件或文件夹名称
+"N – 新建文件
+"K – 新建文件夹
+"dd – 删除光标位置下的文件或文件夹
+"cc – 复制文件或文件夹，会要求输入目标位置
+"mm – 移动文件或文件夹，要求输入目标位置
+let g:vimfiler_safe_mode_by_default = 0
+
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_restore_alternate_file = 1
+let g:vimfiler_tree_indentation = 1
+"let g:vimfiler_tree_leaf_icon = get(g:, 'vimfiler_tree_leaf_icon', '')
+let g:vimfiler_tree_opened_icon = '▽'
+let g:vimfiler_tree_closed_icon = '▶'
+"let g:vimfiler_file_icon = get(g:, 'vimfiler_file_icon', '')
+let g:vimfiler_readonly_file_icon = '*'
+let g:vimfiler_marked_file_icon = '⊙'
+let g:vimfiler_direction = 'right'
+
+""" 快捷键
+map <F2> :VimFilerExplorer<CR>
+
+
+
+"*********************************
+"tagbar
+"*********************************
+" 需要install ctags
+
+let g:tagbar_width = 35
+" 顶部窗口自动预览
+"let g:tagbar_autopreview = 1
+
+""" 快捷键
+" 打开tagbar并聚焦
+function! Tagbar_Toggle()
+    if bufname('%') == '__Tagbar__.1'
+        execute "normal! :TagbarClose\<cr>"
+    else
+        execute "normal! :TagbarOpen j\<cr>"
+    endif
+endfunction
+"TagbarToggle
+nnoremap <F3> :call Tagbar_Toggle()<CR>
+
+
+"*********************************
+"dict
+"*********************************
+""" 快捷键
+"default shortcut
+"--普通模式下，<Leader>d 即可翻译光标下的文本，并在命令行回显
+nmap <silent> <M-d> <Plug>DictSearch
+"--可视化模式下，<Leader>d 即可翻译选中的文本，并在命令行回显
+vmap <silent> <M-d> <Plug>DictVSearch
+"--普通模式下，<Leader>w 即可翻译光标下的文本，并且在Dict新窗口显示
+"nmap <silent> <Plug>DictWSearch
+"--可视化模式下，<Leader>w 即可翻译选中的文本，并且在Dict新窗口显示
+"vmap <silent> <Plug>DictWVSearch
+
+"--普通模式下，<Leader><Leader>r 即可翻译光标下的单词，并替换为翻译的结果
+"nmap <silent> <Leader><Leader>r <Plug>DictRSearch
+"--可视化模式下，<Leader><Leader>r 即可翻译光标下的单词，并替换为翻译的结果
+"vmap <silent> <Leader><Leader>r <Plug>DictRVSearch
+
+
+"*********************************
+"calander
+"*********************************
+" google calander
+"
+"let g:calendar_google_calendar = 1
+"let g:calendar_google_task = 1
+" 8 let g:calendar_mark = 'right' "上面设置后在昨天写日志，修改成right正常
+"let g:calendar_diary = "D:/Document/notes/diary"  " 设置日记的存储路径
+
+
+"*********************************
+"devicon
+"*********************************
+"
+"set guifont=<FONT_NAME> <FONT_SIZE>
+"set guifont=DroidSansMono\ Nerd\ Font\ 11
+"需要来这里下载字体
+"https://github.com/ryanoasis/nerd-fonts
+
+
+"*******************************
+"whitespace
+"*******************************
+highlight ExtraWhitespace ctermbg=white
+map <leader><space> :FixWhitespace<cr>
+
+
+"*****************************
+"TaskList
+"*****************************
+"leader t
+" 就是快速查找标签
+let g:tlTokenList = ["FIXME", "TODO", "HACK", "NOTE", "WARN", "MODIFY"]
+" 打开位置1 下方 0 上方
+let g:tlWindowPosition = 1
+
+
+"*****************************
+"surround
+"*****************************
+"yss+符号添加一个符号
+"ysiw+符号只对一个单词添加符号
+"cs+旧的符号+新的符号，替换
+"ds+符号 删除符号
+"
+
+
+"***************************
+"vim-choosewin
+"***************************
+let g:choosewin_overlay_enable = 1
+nnoremap <silent> <M-w> :ChooseWin<CR>
+nnoremap <silent> <M-s> :ChooseWinSwap<CR>
+
+
+"***************************
+"blueyed/vim-diminactive
+"***************************
+"let g:diminactive_use_colorcolumn = 0
+"let g:diminactive_use_syntax = 0
+"let g:diminactive_enable_focus = 1
+
+
+"***************************
+"matchtagalways
+"***************************
+nnoremap <leader>% :MtaJumpToOtherTag<cr>

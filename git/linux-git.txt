@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/21277806/fatal-early-eof-fatal-index-pack-failed
+
+1. git config --global core.compression 0
+2. git clone --depth 1 <repo_URI>
+3. git fetch --unshallow
+3. git fetch --depth=2147483647
+4. git pull --all
+

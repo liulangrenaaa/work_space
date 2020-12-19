@@ -1,0 +1,26 @@
+[user]
+	name = sh
+	email = sh_def@163.com
+[core]
+	editor = vim
+[commit]
+	template = ~/.git_ci.txt
+
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	pl = pull
+	ps = push
+	last = log -1 HEAD
+	unstage = reset HEAD --
+	df = diff
+	dfl = diff HEAD~
+	dfc = diff --cached
+	chp = cherry-pick
+[core]
+	  editor = vim
+	excludesfile = /home/sh/.gitignore_global
+[color]
+	  ui = auto

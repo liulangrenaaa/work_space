@@ -1,0 +1,5 @@
+
+path=$(pwd)
+echo "building ........."
+
+

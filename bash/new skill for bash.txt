@@ -1,0 +1,8 @@
+1.tldr 代替 man shell 命令 
+man write
+tldr write
+
+sudo apt-get install tldr 即可
+tldr ps 第一次使用会从github上下载相关内容
+
+2.
