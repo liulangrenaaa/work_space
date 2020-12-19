@@ -1,0 +1,79 @@
+1. 宏操作
+	V 选中一行之后，可以 使用:进入命令模式，然后normal 进行操作
+	
+2. 复制粘贴寄存器
+
+"0 复制专用寄存器
+"ayy 将当前行复制到寄存器a中
+"ap  将寄存器a中内容粘贴出来
+
+3. 寄存器与系统剪切板之前的复制粘贴
+"+p 从系统剪切板粘贴
+"+y 复制到系统剪切板
+
+
+或者设置
+set clipboard=unnamed
+
+
+insert 模式 Ctrl + R 
+
+4. 其他寄存器
+"% 当前文件名
+". 上次插入的文本
+
+ 
+5. 从外部复制一段代码进vim 编辑器
+如果设置了 autoindent 就是自动缩进，就会格式很混乱
+在Ctrl + Insert 粘贴外部 文件时可以 先 :set paste
+粘贴完成之后 :set nopaste
+
+6. :e!
+放弃 当前文件 修改
+
+7. :help option-list
+
+
+8. text-object
+w
+iw
+aw
+dt)
+dt"
+
+
+9.移动
+水平移动
+0
+$
+^
+g_
+
+(
+)
+{
+}
+
+H
+M
+L
+
+// normal
+Ctrl + u 
+Ctrl + f 
+
+zz
+
+
+
+10.快速修正 insert 模式
+抛弃退格键
+Ctrl + u 删除当前行
+Ctrl + w 删除前一个单词
+Ctrl + h 删除前一个字符
+
+gi 快读进入上一次编辑的地方并插入
+
+11. new plug
+fzf
+far

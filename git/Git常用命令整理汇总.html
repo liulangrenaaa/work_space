@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Git Cheatsheet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>一、总体示意图</h1>
+<p><img src="https://i.imgur.com/pMuoIu1.png" /></p>
+<pre><code>参数说明：
+1.存档库：当你去修改别的东西的时候，隐藏（临时保存）当前的修改
+2.工作区：本地检出
+3.暂存区(索引)：索引（暂存区）保存了一份工作(树)的快照,作为下次提交的内容
+4.本地版本库：.git 文件夹保存版本库需要的全部信息(Git 版本库的骨架)，一般包括分支master, feature-x, bugfix-y
+5.上游版本库：在网络（局域或因特网）上共享给其他开发者的版本库，一般叫&quot;origin&quot;. 一般包括分支master, shared-feature-x, release-y
+</code></pre>
+
+<h1>二、存档库</h1>
+<p><img src="https://i.imgur.com/tiwAVNH.png" /></p>
+<pre><code>参数说明：
+1.stash save [&lt;msg&gt;]
+    保存当前修改到新的存档库，并且执行git reset ‑‑hard来回滚. msg是可选的来描述存档。想快速建立存档，省略掉&quot;save&quot;和msg.
+2.stash apply [&lt;stash&gt;]
+    从某个存档中将改变应用到工作区，默认是最近的存档
+3.stash pop
+    应用最后一个（或指定的）存档中的改动，然后从存档库丢弃它
+4.stash list
+    显示当前你有的所有存档
+5.stash show [&lt;stash&gt;]
+    显示存档中记录的改动，对比存档生成时的原来状态；不指定stash则显示最后一个
+6.stash drop [&lt;stash&gt;]
+    从存储区中删除单个存档；不指定stash则删除最后一个
+7.stash clear
+    清空存档库。注意相关存档会被清理，此操作不能被恢复
+8.stash branch &lt;branchname&gt; [&lt;stash&gt;]
+    新建并检出一个新分支branchname, 分支开始于存档建立时的源提交，应用存档的变化作为新的工作区和暂存区。如果成功并且stash是以 stash@{revision}方式给出的，则从存档库删除它。未给出则使用最后一个存档。这在当前分支运行 stash save 导致冲突时很好用，因为存档应用于它生成时的提交一定不会有冲突发生
+</code></pre>
+
+<h1>三、工作区</h1>
+<p><img src="https://i.imgur.com/FXUCRzm.png" /></p>
+<pre><code>参数说明：
+1.status
+    显示状态变化，包括
+        1)暂存区与当前的 HEAD 提交之间(即将提交的)，
+        2）工作区与暂存区(下次不会提交)，
+        3）未曾被git追踪 (没有历史记录)
+2.diff
+    显示未添加到暂存区的不同
+3.diff &lt;commit or branch&gt;
+    查看工作区与某一提交之间的不同。你也可以使用 HEAD 来对比上一提交，或是用分支名来和分支比较
+4.add &lt;file... or dir...&gt;
+    添加当前的新内容或是修改的文件到暂存区，作为下次提交的(部分)内容。用add --interactive 来交互式操作
+5.add -u
+    添加当前修改(不包括新文件)到暂存区, 这与'git commit -a'准备提交内容的方式一致
+6.rm &lt;file(s)...&gt;
+    从工作区和暂存区删除某个文件
+7.mv &lt;file(s)...&gt;
+    从工作区和暂存区移动文件
+8.commit -a [-m 'msg']
+    提交上次提交之后的所有修改，
+        1)未追踪的除外(即：所有暂存区有记录的文件)；
+        2)从暂存区删除已在工作区删除的文件
+9.checkout &lt;files(s)... or dir&gt;
+    更新工作区文件或文件夹，不会切换分支
+10.reset --hard
+    恢复工作区和暂存区到上次提交的状态，警告： 所有工作区修改都会被丢弃。使用这条命令来解决合并错误，如果你想从头开始的话传入 ORIG_HEAD 来撤销该次提交以来的所有改动
+11.checkout &lt;branch&gt;
+    切换分支，更改工作区和暂存区为branch分支的内容，之后HEAD指向branch分支
+12.checkout -b &lt;name of new branch&gt;
+    新建一个分支并且立即切换过去
+13.merge &lt;commit or branch&gt;
+    从branch name分支合并到当前分支，使用‑‑no-commit可以保持在(已经合并)但未提交状态
+14.rebase &lt;upstream&gt;
+    衍合：回滚从【当前提交和upstream分支分开处】开始直到当前提交的所有提交，将这些提交一一应用到upstream分支，结果作为upstream的新提交
+15.cherry-pick &lt;commit&gt;
+    把某个提交移动到当前分支来
+16.revert &lt;commit&gt;
+    回滚commit指定的提交，这需要当前工作区是干净的，即相比于 HEAD 提交没有修改
+17.clone &lt;repo&gt;
+    下载repo指定的版本库，并在工作区迁出master分支的HEAD版本
+18.pull &lt;remote&gt; &lt;refspec&gt;
+    从远程版本库取得修改到当前分支. 一般来说, git pull 相当于 git fetch 然后做 git merge FETCH_HEAD
+19.reset --hard &lt;remote&gt;/&lt;branch&gt;
+    重置本地版本库，让它与远程版本一致；用 reset ‑‑hard origin/master 来丢弃所有的本地改动；用这个来处理失败的合并，直接从远程开始
+20.clean
+    从当前文件夹开始递归清理不受版本管理的内容
+21.stash save [&lt;msg&gt;]
+    保存当前修改到新的存档库，并且执行git reset ‑‑hard来回滚. msg是可选的来描述存档。想快速建立存档，省略掉&quot;save&quot;和msg.
+22.stash apply [&lt;stash&gt;]
+    从某个存档中将改变应用到工作区，默认是最近的存档
+23.stash pop
+    应用最后一个（或指定的）存档中的改动，然后从存档库丢弃它
+</code></pre>
+
+<h1>四、暂存区</h1>
+<p><img src="https://i.imgur.com/Qio33Ad.png" /></p>
+<pre><code>参数说明：
+1.status
+    显示状态变化，包括
+    1)暂存区与当前的 HEAD 提交之间(即将提交的)，
+    2）工作区与暂存区(下次不会提交)，
+    3）未曾被git追踪 (没有历史记录)
+2.diff
+    显示未添加到暂存区的不同
+3.add &lt;file... or dir...&gt;
+    添加当前的新内容或是修改的文件到暂存区，作为下次提交的(部分)内容。用add --interactive 来交互式操作
+4.add -u
+    添加当前修改(不包括新文件)到暂存区, 这与'git commit -a'准备提交内容的方式一致
+5.rm &lt;file(s)...&gt;
+    从工作区和暂存区删除某个文件
+6.mv &lt;file(s)...&gt;
+    从工作区和暂存区移动文件
+7.checkout &lt;files(s)... or dir&gt;
+    提交上次提交之后的所有修改，
+        1)未追踪的除外(即：所有暂存区有记录的文件)；
+        2)从暂存区删除已在工作区删除的文件
+8.reset HEAD &lt;file(s)...&gt;
+    从下次提交中移除指定文件。重置暂存区记录但是不处理工作区(即: 文件改动被保留但不会被提交)，同时报告没有被更新的文件
+9.reset --soft HEAD^
+    恢复上一次提交，保留暂存区的改动
+10.diff --cached [&lt;commit&gt;]
+    查看已经暂存的内容和上次提交的区别，也可指定某一提交
+11.commit [-m 'msg']
+    暂存区中的当前内容连同提交信息储存为新提交
+12.commit --amend
+    用当前暂存去的内容修改最近一次的提交，也可以拿来修改提交信息
+</code></pre>
+
+<h1>五、本地版本库</h1>
+<p><img src="https://i.imgur.com/lPY9uFU.png" /></p>
+<pre><code>参数说明：
+1.diff &lt;commit or branch&gt;
+    查看工作区与某一提交之间的不同。你也可以使用 HEAD 来对比上一提交，或是用分支名来和分支比较
+2.commit -a [-m 'msg']
+    提交上次提交之后的所有修改，
+        1)未追踪的除外(即：所有暂存区有记录的文件)；
+        2)从暂存区删除已在工作区删除的文件
+3.reset --soft HEAD^
+    恢复上一次提交，保留暂存区的改动
+4.reset --hard
+    恢复工作区和暂存区到上次提交的状态，警告： 所有工作区修改都会被丢弃。使用这条命令来解决合并错误，如果你想从头开始的话传入 ORIG_HEAD 来撤销该次提交以来的所有改动
+5.checkout &lt;branch&gt;
+    切换分支，更改工作区和暂存区为branch分支的内容，之后HEAD指向branch分支
+6.checkout -b &lt;name of new branch&gt;
+     新建一个分支并且立即切换过去
+7.merge &lt;commit or branch&gt;
+    从branch name分支合并到当前分支，使用‑‑no-commit可以保持在(已经合并)但未提交状态
+8.rebase &lt;upstream&gt;
+     衍合：回滚从【当前提交和upstream分支分开处】开始直到当前提交的所有提交，将这些提交一一应用到upstream分支，结果作为upstream的新提交
+9.cherry-pick &lt;commit&gt;
+    把某个提交移动到当前分支来
+10.revert &lt;commit&gt;
+    回滚commit指定的提交，这需要当前工作区是干净的，即相比于 HEAD 提交没有修改
+11.diff --cached &lt;commit&gt;
+    查看已经暂存的内容和上次提交的区别，也可指定某一提交
+12.commit [-m 'msg']
+    暂存区中的当前内容连同提交信息储存为新提交
+13.commit --amend
+    用当前暂存去的内容修改最近一次的提交，也可以拿来修改提交信息
+14.log
+    显示最近的提交，新的在上边。参数:
+        ‑‑decorate 显示分支和tag名字到对应的提交
+        ‑‑stat 显示状态 (文件修改, 添加, 删除)
+        ‑‑author=author 只显示某个作者
+        ‑‑after=&quot;MMM DD YYYY&quot; 如(&quot;Jun 20 2008&quot;) 只显示某个日期之后的提交
+        ‑‑before=&quot;MMM DD YYYY&quot; 只显示某个日期之前的提交
+        ‑‑merge 只与当前合并冲突有关的提交
+15.diff &lt;commit&gt; &lt;commit&gt;
+    显示两个提交之间的不同
+16.branch
+    显示所有（本地）存在的分支。参数 -r 显示远程追踪分支，参数 -a 显示全部
+17.branch -d &lt;branch&gt;
+    删除某个分支，使用—D来强制删除
+18.branch --track &lt;new&gt; &lt;remote/branch&gt;
+    添加一个本地分支来跟踪某个远程分支
+19.fetch &lt;remote&gt; &lt;refspec&gt;
+    从远端版本库下载对象和引用(即版本信息)
+20.push
+    从本地提交推送分支改变到远程，分支为所有推送过的分支
+21.push &lt;remote&gt; &lt;branch&gt;
+    向远端版本库推送新的(已存在的)分支
+22.push &lt;remote&gt; &lt;branch&gt;:&lt;branch&gt;
+    向远端版本库推送分支，但是从不同的（本地）分支名
+23.stash branch &lt;branchname&gt; [&lt;stash&gt;]
+    新建并检出一个新分支branchname, 分支开始于存档建立时的源提交，应用存档的变化作为新的工作区和暂存区。如果成功并且stash是以 stash@{revision}方式给出的，则从存档库删除它。未给出则使用最后一个存档。这在当前分支运行 stash save 导致冲突时很好用，因为存档应用于它生成时的提交一定不会有冲突发生
+</code></pre>
+
+<h1>六、上游版本库</h1>
+<p><img src="https://i.imgur.com/wmIO7GO.png" /></p>
+<pre><code>参数说明：
+1.branch --track &lt;new&gt; &lt;remote/branch&gt;
+    添加一个本地分支来跟踪某个远程分支
+2.clone &lt;repo&gt;
+    下载repo指定的版本库，并在工作区迁出master分支的HEAD版本
+3.pull &lt;remote&gt; &lt;refspec&gt;
+    从远程版本库取得修改到当前分支. 一般来说, git pull 相当于 git fetch 然后做 git merge FETCH_HEAD
+4.reset --hard &lt;remote&gt;/&lt;branch&gt;
+    重置本地版本库，让它与远程版本一致；用 reset ‑‑hard origin/master 来丢弃所有的本地改动；用这个来处理失败的合并，直接从远程开始
+5.fetch &lt;remote&gt; &lt;refspec&gt;
+    从远端版本库下载对象和引用(即版本信息)
+6.push
+    从本地提交推送分支改变到远程，分支为所有推送过的分支
+7.push &lt;remote&gt; &lt;branch&gt;
+    向远端版本库推送新的(已存在的)分支
+8.push &lt;remote&gt; &lt;branch&gt;:&lt;branch&gt;
+    向远端版本库推送分支，但是从不同的（本地）分支名
+9.branch -r
+    显示远端分支
+10.push &lt;remote&gt;:&lt;branch&gt;
+    删除一个远程分支，通过向远程分支推送空内容
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
