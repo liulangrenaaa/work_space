@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugins')
 
 " Plug 'zxqfl/tabnine-vim'
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 Plug 'plytophogy/vim-virtualenv'
 Plug 'iamcco/markdown-preview.vim'
 Plug 'mzlogin/vim-markdown-toc'
@@ -36,6 +36,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'airblade/vim-rooter'
 Plug 'vim-scripts/autoload_cscope.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
