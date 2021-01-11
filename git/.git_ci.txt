@@ -1,6 +1,4 @@
-FIX: wm170:
+2021/01/11 update
 
-commit message
+2021/01/11 update:
 
-JIRA:
-TEST:
