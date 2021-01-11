@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # PS1='\[\e[33;1m\]tencent\[\e[31;1m\]@\[\e[33;1m\]ubuntu:\[\e[36;1m\]\w\[\e[31;1m\]\$ \[\e[0m\]'
-PROMPT='%{$fg[green]%}amd_server@%{$fg[magenta]%}%(?..%?%1v)ubuntu: %{$reset_color%}%{$fg[cyan]%}%~# '
+PROMPT='%{$fg[green]%}Inspiron-5548@%{$fg[magenta]%}%(?..%?%1v)ubuntu: %{$reset_color%}%{$fg[cyan]%}%~# '
 
 alias v="vim"
 alias ping="ping -w 5"
@@ -207,3 +207,7 @@ alias fw3="bash /home/ubuntu/workspace/jenkins_workspace/test_scripts/find_warni
 alias fw="fw1"
 
 cd ~/workspace/
+
+alias ssh_t="ssh ubuntu@49.235.41.28"
+alias ssh_s="ssh ubuntu@49.235.41.28 -p 222"
+alias shot="flameshot gui"
