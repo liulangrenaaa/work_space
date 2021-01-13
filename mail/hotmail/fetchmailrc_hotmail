@@ -1,0 +1,9 @@
+poll outlook.office365.com
+protocol POP3
+user "sh_def@hotmail.com"
+
+# poll outlook.office365.com
+# protocol IMAP
+# user "sh_def@hotmail.com"
+
+password "111220aaa"

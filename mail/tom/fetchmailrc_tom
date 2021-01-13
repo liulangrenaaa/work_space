@@ -1,0 +1,9 @@
+# poll pop.tom.com
+# protocol POP3
+
+
+poll imap.tom.com
+protocol IMAP
+
+user "suhui_linux"
+password 111220aaa
