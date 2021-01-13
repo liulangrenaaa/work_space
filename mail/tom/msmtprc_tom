@@ -1,0 +1,8 @@
+account default
+host smtp.tom.com
+port 25
+from suhui_linux@tom.com
+auth plain
+tls off
+user suhui_linux@tom.com
+password 111220aaa

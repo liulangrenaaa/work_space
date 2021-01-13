@@ -1,0 +1,16 @@
+upgrade SSL enc needs pay
+
+IMAP:
+l: IMAP< A0001 OK completed
+fetchmail: IMAP> A0002 STARTTLS
+fetchmail: IMAP< A0002 BAD invalid command
+fetchmail: imap.tom.com: upgrade to TLS failed.
+
+
+
+POP3:
+fetchmail: POP3> STLS
+fetchmail: POP3< -ERR invalid command
+fetchmail: invalid command
+fetchmail: pop.tom.com: upgrade to TLS failed.
+
