@@ -1,0 +1,8 @@
+account default
+host smtp.qq.com
+port 25
+from sh_def@foxmail.com
+auth on
+tls on
+user sh_def@foxmail.com
+password ddgdipcvbymadeig

@@ -1,0 +1,11 @@
+# poll pop.qq.com
+# protocol POP3
+# user "sh_def@foxmail.com"
+# password huubxoowhqvgdegj
+
+poll imap.qq.com
+protocol IMAP
+
+
+user "sh_def@foxmail.com"
+password ddgdipcvbymadeig

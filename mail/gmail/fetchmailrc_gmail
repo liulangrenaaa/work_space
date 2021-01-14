@@ -1,0 +1,10 @@
+poll pop.gmail.com
+protocol POP3
+user "suhui199712@gmail.com"
+
+#poll pop3.163.com
+##protocol POP3
+##user "sh_def@163.com"
+##
+##
+password "1234hjkl@"

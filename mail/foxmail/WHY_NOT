@@ -1,0 +1,13 @@
+i can not fetchmail
+
+amd_server@ubuntu: ~/myspace/work_space/mail/foxmail# mf
+fetchmail: 6.4.2 querying imap.qq.com (protocol IMAP) at 2021年01月13日 星期三 20时02分32秒: poll started
+Trying to connect to 240e:ff:f100:8019::6a/143...connected.
+fetchmail: IMAP< * OK [CAPABILITY IMAP4 IMAP4rev1 ID AUTH=PLAIN AUTH=LOGIN NAMESPACE] QQMail XMIMAP4Server ready
+fetchmail: IMAP> A0001 CAPABILITY
+fetchmail: IMAP< * CAPABILITY IMAP4 IMAP4rev1 XLIST MOVE IDLE XAPPLEPUSHSERVICE AUTH=PLAIN AUTH=LOGIN NAMESPACE CHILDREN ID UIDPLUS
+fetchmail: IMAP< A0001 OK CAPABILITY Completed
+fetchmail: IMAP> A0002 STARTTLS
+fetchmail: IMAP< * BAD Command!
+^Cfetchmail: terminated with signal 2
+

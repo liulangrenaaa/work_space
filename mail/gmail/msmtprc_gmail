@@ -1,0 +1,10 @@
+account default
+host smtp.gmail.com
+# port 25
+port 587
+from suhui199712@gmail.com
+auth on
+tls on
+user suhui199712@gmail.com
+
+password 1234ijkl@

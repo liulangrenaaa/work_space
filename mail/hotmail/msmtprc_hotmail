@@ -1,0 +1,8 @@
+account default
+host smtp.live.com
+port 25
+from sh_def@hotmail.com
+auth on
+tls on
+user sh_def@hotmail.com
+password 111220aaa

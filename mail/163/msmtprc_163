@@ -1,0 +1,10 @@
+account default
+host smtp.163.com
+port 25
+from sh_def@163.com
+auth plain
+tls off
+user sh_def@163.com
+# password "RRNXFSNFARDFSFYY"
+password RRNXFSNFARDFSFYY
+# password 1234h
