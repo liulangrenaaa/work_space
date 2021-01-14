@@ -211,3 +211,4 @@ cd ~/workspace/
 alias ssh_t="ssh ubuntu@49.235.41.28"
 alias ssh_s="ssh ubuntu@49.235.41.28 -p 222"
 alias shot="flameshot gui"
+alias wemeet="wine /home/ubuntu/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/WeMeet/wemeetapp.exe"
