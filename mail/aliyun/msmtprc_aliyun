@@ -1,0 +1,8 @@
+account default
+host smtp.aliyun.com
+port 25
+from sh_def@aliyun.com
+auth on
+tls on
+user sh_def@aliyun.com
+password 111220aaa

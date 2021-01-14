@@ -1,0 +1,8 @@
+account default
+host mail.liulangren.top
+port 25
+from admin@liulangren.top
+auth login
+tls off
+user admin@liulangren.top
+password 123

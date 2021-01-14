@@ -1,0 +1,11 @@
+#poll pop.139.com
+#protocol POP3
+#user sh_def@139.com
+
+poll imap.139.com
+protocol IMAP
+user sh_def@139.com
+
+
+
+password a1648cde40181bbc4800

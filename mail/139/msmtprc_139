@@ -1,0 +1,10 @@
+account default
+host smtp.139.com
+port 25
+from sh_def@139.com
+auth on
+tls on
+user sh_def@139.com
+
+# password 111220aaa_
+password a1648cde40181bbc4800

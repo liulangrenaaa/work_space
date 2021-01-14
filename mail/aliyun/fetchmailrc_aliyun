@@ -1,0 +1,10 @@
+poll pop3.aliyun.com
+port 110
+protocol POP3
+user "sh_def"
+
+# poll imap.aliyun.com
+# protocol IMAP
+# user "sh_def@aliyun.com"
+
+password "111220aaa"

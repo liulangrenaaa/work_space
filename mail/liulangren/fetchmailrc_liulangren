@@ -1,0 +1,9 @@
+# poll mail.liulangren.top
+# protocol POP3
+# user "suhui"
+
+poll mail.liulangren.top
+protocol IMAP
+user "suhui"
+
+password "123"
