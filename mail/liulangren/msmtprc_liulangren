@@ -1,0 +1,8 @@
+account default
+host mail.liulangren.top
+port 25
+from suhui@liulangren.top
+auth login
+tls off
+user suhui@liulangren.top
+password 123

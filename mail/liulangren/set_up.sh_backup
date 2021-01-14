@@ -1,0 +1,13 @@
+#!/bin/bash
+
+
+mv ~/.muttrc /tmp/
+mv ~/.msmtprc /tmp/
+# mv ~/.fetchmailrc /tmp/
+
+cp ./muttrc_liulangren_backup ~/.muttrc
+cp ./msmtprc_liulangren_backup ~/.msmtprc
+# cp ./msmtprc_liulangren_backup ~/.msmtprc
+
+chmod 600 ~/.msmtprc
+
