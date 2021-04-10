@@ -147,18 +147,5 @@ alias rdn='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh next'
 alias ssh_vm='ssh rlk@127.0.0.1 -p 2222'
 alias ssh_vma='ssh ubuntu@127.0.0.1 -p 2222'
 
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# __conda_setup="$('/home/ubuntu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-# if [ $? -eq 0 ]; then
-#     eval "$__conda_setup"
-# else
-#     if [ -f "/home/ubuntu/miniconda3/etc/profile.d/conda.sh" ]; then
-#         . "/home/ubuntu/miniconda3/etc/profile.d/conda.sh"
-#     else
-#         export PATH="/home/ubuntu/miniconda3/bin:$PATH"
-#     fi
-# fi
-# unset __conda_setup
-# # <<< conda initialize <<<
-
+# export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+# export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
