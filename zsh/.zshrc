@@ -112,7 +112,7 @@ source $ZSH/oh-my-zsh.sh
 
 
 # PS1='\[\e[33;1m\]tencent\[\e[31;1m\]@\[\e[33;1m\]ubuntu:\[\e[36;1m\]\w\[\e[31;1m\]\$ \[\e[0m\]'
-PROMPT='%{$fg[green]%}Inspiron-5548@%{$fg[magenta]%}%(?..%?%1v)ubuntu: %{$reset_color%}%{$fg[cyan]%}%~# '
+PROMPT='%{$fg[green]%}amd_server@%{$fg[magenta]%}%(?..%?%1v)ubuntu: %{$reset_color%}%{$fg[cyan]%}%~# '
 
 alias v="vim"
 alias ping="ping -w 5"
@@ -168,10 +168,12 @@ alias build="rm /home/ubuntu/workspace/compile/out/ && mkdir /home/ubuntu/worksp
 
 alias rd='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh stable'
 alias rdn='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh next'
+alias rdd='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh debug'
+alias run_dpdk='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh dpdk'
 
 
 alias rd_old='sudo qemu-system-x86_64 /home/ubuntu/myspace/qemu_build/stable_ubuntu.img -smp 4 -m 2048 --enable-kvm -net nic -net user,hostfwd=tcp::2222-:22 --nographic'
-# ssh -v rlk@127.0.0.1 -p 2222
+alias ssh_vm='ssh -v rlk@127.0.0.1 -p 2222'
 
 alias lls="ls"
 alias lsl="ls"
@@ -205,10 +207,20 @@ alias fw1="bash /home/ubuntu/workspace/jenkins_workspace/test_scripts/find_warni
 alias fw2="bash /home/ubuntu/workspace/jenkins_workspace/test_scripts/find_warnings.sh 2"
 alias fw3="bash /home/ubuntu/workspace/jenkins_workspace/test_scripts/find_warnings.sh 3"
 alias fw="fw1"
+alias his="history"
+alias cSu="sudo nmcli connection up Su"
+alias cOLD="sudo nmcli connection up ChinaNet-5mrv"
 
 cd ~/workspace/
-
-alias ssh_t="ssh ubuntu@49.235.41.28"
-alias ssh_s="ssh ubuntu@49.235.41.28 -p 222"
-alias shot="flameshot gui"
-alias wemeet="wine /home/ubuntu/.wine/drive_c/Program\ Files\ \(x86\)/Tencent/WeMeet/wemeetapp.exe"
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin

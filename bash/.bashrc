@@ -139,3 +139,5 @@ alias tk="tmux kill-session -t"
 alias tq="tmux detach"
 alias tl="tmux ls"
 
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
