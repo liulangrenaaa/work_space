@@ -1,0 +1,14 @@
+{
+	"files": [
+		{
+			"path": "kernel/sched/idle.c",
+			"bookmarks": [
+				{
+					"line": 397,
+					"column": 33,
+					"label": ""
+				}
+			]
+		}
+	]
+}

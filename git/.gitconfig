@@ -1,6 +1,6 @@
 [user]
 	name = Hui Su
-	email = sh_def@163.com
+	email = suhui@zeku.com
 [core]
 	editor = vim
 [commit]
@@ -24,3 +24,16 @@
 	excludesfile = /home/sh/.gitignore_global
 [color]
 	  ui = auto
+
+[http]
+    sslverify = false
+
+[https]
+    sslverify = false
+
+[sendemail]
+        smtpserver = smtp.office365.com
+        smtpserverport = 587
+        smtpuser = suhui@zeku.com
+        smtpencryption = tls
+        smtppass = 1234hjkl!
