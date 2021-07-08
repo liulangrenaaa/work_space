@@ -6,3 +6,13 @@ set use_from=yes
 set envelope_from=yes
 
 set editor="vim"
+
+
+
+# dir set
+set mbox_type = Maildir
+set folder = "/home/ubuntu/workspace/mails"
+set spoolfile = "/home/ubuntu/workspace/mails/inbox" #INBOX
+set mbox="/home/ubuntu/workspace/mails/seen"  		 #Seen box
+set record="/home/ubuntu/workspace/mails/sent"  	 #Sent box
+set postponed="/home/ubuntu/workspace/mails/draft"   #Draft box

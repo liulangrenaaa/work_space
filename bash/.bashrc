@@ -162,3 +162,5 @@ alias ssh_vma='ssh ubuntu@127.0.0.1 -p 2222'
 # unset __conda_setup
 # # <<< conda initialize <<<
 
+export LKP_SRC=/home/ubuntu/workspace/lkp-tests
+export PATH=$PATH:$LKP_SRC/sbin:$LKP_SRC/bin
