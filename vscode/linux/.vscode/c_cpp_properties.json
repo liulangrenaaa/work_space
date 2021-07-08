@@ -1,0 +1,28 @@
+{
+        "env": {
+          "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+          "myCompilerPath": "/usr/bin/aarch64-linux-gnu-gcc"
+        },
+        "configurations": [
+          {
+            "name": "linux-5.10.y",
+            "intelliSenseMode": "gcc-arm64",
+            "includePath": ["${myDefaultIncludePath}"],
+            "defines": [
+                "__KERNEL__",
+                "BAR=100",
+                "CONFIG_SPARSEMEM"
+              ],
+            "compilerPath": "/usr/bin/aarch64-linux-gnu-gcc",
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
+            "browse": {
+              "path": ["${workspaceFolder}"],
+              "limitSymbolsToIncludedHeaders": true,
+              "databaseFilename": ""
+            }
+          }
+        ],
+        "version": 4
+}

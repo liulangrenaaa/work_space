@@ -1,0 +1,80 @@
+{
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+                {
+                        "label": "vm-start",
+                        "type": "shell",
+                        "command": "sudo pkill qemu ; sudo qemu-system-x86_64 -kernel /home/ubuntu/workspace/linux/out/arch/x86/boot/bzImage -hda /home/ubuntu/myspace/qemu_build/stable_ubuntu.img -append 'root=/dev/sda5 console=ttyS0 crashkernel=256M systemd.unified_cgroup_hierarchy=1' -smp 4 -m 4096 --enable-kvm -net nic -net user,hostfwd=tcp::2222-:22 --nographic -fsdev local,id=fs1,path=/home/ubuntu/workspace/share,security_model=none -device virtio-9p-pci,fsdev=fs1,mount_tag=host_share",
+                        // "command": "sudo pkill qemu ; sudo qemu-system-x86_64 -kernel /home/ubuntu/workspace/linux/out/arch/x86/boot/bzImage -hda /home/ubuntu/myspace/qemu_build/stable_ubuntu.img -append 'root=/dev/sda5 console=ttyS0 crashkernel=256M' -smp 4 -m 4096 --enable-kvm -net nic -net user,hostfwd=tcp::2222-:22 --nographic -fsdev local,id=fs1,path=/home/ubuntu/workspace/share,security_model=none -device virtio-9p-pci,fsdev=fs1,mount_tag=host_share",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm"
+                        },
+                },
+                {
+                        "label": "vm-stop",
+                        "type": "shell",
+                        "command": "sudo pkill qemu",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm"
+                        },
+                },
+                {
+                        "label": "make",
+                        "type": "shell",
+                        "command": "make bzImage -j12 O=./out && make modules -j12 O=./out && python ./scripts/clang-tools/gen_compile_commands.py -d ./out/ && rm /home/ubuntu/.vscode-server/data/User/workspaceStorage/* -rf",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                },
+                {
+                        "label": "make clean",
+                        "type": "shell",
+                        "command": "make mrproper",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                },
+                {
+                        "label": "remake",
+                        "type": "shell",
+                        "command": "make mrproper && make bzImage -j12 O=./out && python ./scripts/clang-tools/gen_compile_commands.py -d ./out/ ",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                },
+                {
+                        "label": "generate label",
+                        "type": "shell",
+                        "command": "python ./scripts/clang-tools/gen_compile_commands.py -d ./out/",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                }
+        ]
+}

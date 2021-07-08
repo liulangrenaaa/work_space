@@ -118,7 +118,7 @@ fi
 
 # PS1='\[\e]0;\u@\h: \w\a\]\u@\h:\w\$'
 # \[\e[33;1m\]
-PS1='\[\e[33;1m\]sh\[\e[31;1m\]@\[\e[33;1m\]amd_server:\[\e[36;1m\]\w \[\e[31;1m\]\$ \[\e[0m\]'
+PS1='\[\e[33;1m\]ubuntu\[\e[31;1m\]@\[\e[33;1m\]zeku_server:\[\e[36;1m\]\w \[\e[31;1m\]\$ \[\e[0m\]'
 
 alias v="vim"
 alias ping="ping -w 5"
@@ -138,4 +138,27 @@ alias ti="tmux attach-session -t"
 alias tk="tmux kill-session -t"
 alias tq="tmux detach"
 alias tl="tmux ls"
+
+alias rd='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh stable'
+alias rdn='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh next'
+
+alias rda='sudo /var/lib/jenkins/workspace/test_scripts/arm64_start_qemu.sh stable'
+alias rdn='sudo /var/lib/jenkins/workspace/test_scripts/start_qemu.sh next'
+alias ssh_vm='ssh rlk@127.0.0.1 -p 2222'
+alias ssh_vma='ssh ubuntu@127.0.0.1 -p 2222'
+
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# __conda_setup="$('/home/ubuntu/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+# if [ $? -eq 0 ]; then
+#     eval "$__conda_setup"
+# else
+#     if [ -f "/home/ubuntu/miniconda3/etc/profile.d/conda.sh" ]; then
+#         . "/home/ubuntu/miniconda3/etc/profile.d/conda.sh"
+#     else
+#         export PATH="/home/ubuntu/miniconda3/bin:$PATH"
+#     fi
+# fi
+# unset __conda_setup
+# # <<< conda initialize <<<
 
