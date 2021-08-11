@@ -22,6 +22,7 @@ ln   ./bash/.tmux.conf  ~/.tmux.conf
 ln   ./vim/autoload/plug.vim  ~/.vim/autoload/plug.vim
 ln   ./vim/vimrc  ~/.vim/vimrc
 ln -s ~/vim/vimrc  ~/.vimrc
+ln -s ~/gdb/.gdbinit  ~/.gdbinit
 # ln -s /home/sh/myspace/work_space/vim/plugins ~/.vim/plugins
 
 if [ $1 == zip ];then
