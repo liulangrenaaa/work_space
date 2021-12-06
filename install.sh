@@ -21,7 +21,7 @@ ln   ./bash/.bashrc  ~/.bashrc
 ln   ./bash/.tmux.conf  ~/.tmux.conf
 ln   ./vim/autoload/plug.vim  ~/.vim/autoload/plug.vim
 ln   ./vim/vimrc  ~/.vim/vimrc
-ln -s ~/vim/vimrc  ~/.vimrc
+ln -s ~/.vim/vimrc  ~/.vimrc
 ln -s ~/gdb/.gdbinit  ~/.gdbinit
 # ln -s /home/sh/myspace/work_space/vim/plugins ~/.vim/plugins
 
@@ -38,3 +38,5 @@ elif [ $1 == unzip ];then
     rm     ~/.vim/plugins/vim -rf
     echo "unzippd............."
 fi
+
+# vim PlugInstall 
