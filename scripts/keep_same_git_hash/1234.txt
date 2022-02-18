@@ -1,0 +1,31 @@
+ece338aaa6b4 UPSTREAM: seq_file: disallow extremely large seq buffer allocations
+8c0966a ANDROID: Enable GKI Dr. No Enforcement
+9cf8d43 ANDROID: Enable GKI Dr. No Enforcement
+c10b7ea ANDROID: Enable GKI Dr. No Enforcement
+6e3223f7 ANDROID: Enable GKI Dr. No Enforcement
+70065c8 Merge "Update ddmlib prebuilt on 2021-06-08 09:50:33.410381"
+2f00ab0 Update the GKI binaries to ab/7854779
+cfedc16 ANDROID: Enable GKI Dr. No Enforcement
+4e6f66a ANDROID: Enable GKI Dr. No Enforcement
+a5fcf02 ANDROID: Enable GKI Dr. No Enforcement
+bab1a1e Merge android-gs-pixel-5.10 into android12-gs-pixel-5.10-sc
+e200489 Fix the log messages on suspend/resume
+232075c Merge android-gs-pixel-mainline into android-gs-pixel-5.10
+f554a23 Handle BT Rx outside of pm_runtime with its own SICD index
+fb04688 p9221_charger: update session features
+eac3fa7 s6e3hc3: bundle brightness update with HBM update
+f3671db edgetpu: thermal: tmu: add tpu pause/resume feature
+b6aad74 fingerprint: fpc: Config power down mode for rst pin
+c89b9dd Initial empty repository
+c32bd52 mali_kbase: platform: power: Only take lock for domain updates
+ed027a3 Buffer: Correctly disenroll buffer to avoid memory leaks
+1f88df3 nfc: fix st33spi state update flow
+cabb3d0 power: reset: remove dead code
+7b53da6 touch: common: modify the return value when register_tbn failed
+07c50f7 touch/ftm5: only handle touch events with valid touch IDs
+b074276 touch/sec: use mode switch for resume insted of T-IC reset.
+52aa95f Revert "UWB Mobile stack UWB-P2-S4"
+8bac6b2 bcmdhd : Remove kernel_read dependency from 43752 driver
+83f4849 bcmdhd: fixed to correctly handle the wl_cfg80211_set_channel error case
+ff5b99086978 pcie: exynos: remove recover queue_work for CPL timeout
+34bc8bf ANDROID: Enable GKI Dr. No Enforcement
