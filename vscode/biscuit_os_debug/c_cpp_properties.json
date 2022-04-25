@@ -1,19 +1,19 @@
 {
         "env": {
           "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
-          "myCompilerPath": "/usr/bin/aarch64-linux-gnu-gcc"
+          "myCompilerPath": "/usr/bin/gcc"
         },
         "configurations": [
           {
-            "name": "linux-5.10.y",
-            "intelliSenseMode": "gcc-arm64",
+            "name": "linux",
+            "intelliSenseMode": "gcc-x64",
             "includePath": ["${myDefaultIncludePath}"],
             "defines": [
                 "__KERNEL__",
                 "BAR=100",
                 "CONFIG_SPARSEMEM"
               ],
-            "compilerPath": "/usr/bin/aarch64-linux-gnu-gcc",
+            "compilerPath": "/usr/bin/gcc",
             "cStandard": "c99",
             "cppStandard": "c++17",
             "compileCommands": "${workspaceFolder}/compile_commands.json",

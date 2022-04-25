@@ -1,0 +1,28 @@
+{
+        "env": {
+          "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+          "myCompilerPath": "/usr/bin/gcc"
+        },
+        "configurations": [
+          {
+            "name": "linux",
+            "intelliSenseMode": "gcc-x64",
+            "includePath": ["${myDefaultIncludePath}"],
+            "defines": [
+                "__KERNEL__",
+                "BAR=100",
+                "CONFIG_SPARSEMEM"
+              ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c99",
+            "cppStandard": "c++17",
+            "compileCommands": "${workspaceFolder}/compile_commands.json",
+            "browse": {
+              "path": ["${workspaceFolder}"],
+              "limitSymbolsToIncludedHeaders": true,
+              "databaseFilename": ""
+            }
+          }
+        ],
+        "version": 4
+}

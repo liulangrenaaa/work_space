@@ -1,0 +1,168 @@
+{
+        // See https://go.microsoft.com/fwlink/?LinkId=733558
+        // for the documentation about the tasks.json format
+        "version": "2.0.0",
+        "tasks": [
+                {
+                        "label": "start-biscuitos",
+                        "type": "shell",
+                        "command": "/BiscuitOS/output/linux-5.10-aarch/RunBiscuitOS.sh",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm"
+                        },
+                        "problemMatcher": []
+                },
+                {
+                        "label": "debug-biscuitos",
+                        "type": "shell",
+                        "command": "/BiscuitOS/output/linux-5.10-aarch/RunBiscuitOS.sh debug",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm"
+                        },
+                        "problemMatcher": []
+                },
+                {
+                        "label": "start-arm64-ubuntu",
+                        "type": "shell",
+                        "command": " sudo /BiscuitOS/output/linux-5.10-aarch/qemu-system/qemu-4.0.0/aarch64-softmmu/qemu-system-aarch64 -hda /root/myspace/qemu_build/ubuntu/aarch64_ubuntu.img -kernel /root/workspace/linux-5.10/out/arch/arm64/boot/Image -append 'console=ttyAMA0 root=/dev/vda1' -m 2048M -smp 8 -M virt -cpu cortex-a72 -net nic -net user,hostfwd=tcp::2222-:22 -nographic -fsdev local,id=fs1,path=/root/workspace/share,security_model=none -device virtio-9p-pci,fsdev=fs1,mount_tag=host_share",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm"
+                        },
+                        "problemMatcher": []
+                },
+                {
+                        "label": "vm-stop",
+                        "type": "shell",
+                        "command": "sudo pkill qemu ; echo 'qemu stoped'",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "vm_stop"
+                        }
+                },
+                {
+                        "label": "make",
+                        "type": "shell",
+                        "command": "make -j12 ARCH=arm64 CROSS_COMPILE=/usr/bin/aarch64-linux-gnu- Image O=./out/ && echo '****************make is ready**************'",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                },
+                {
+                        "label": "make clean",
+                        "type": "shell",
+                        "command": "make mrproper ARCH=arm64",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "build"
+                        }
+                },
+                {
+                        "label": "gen label",
+                        "type": "shell",
+                        "command": "python ./scripts/clang-tools/gen_compile_commands.py -d ./out/",
+                        "group": {
+                                "kind": "build",
+                                "isDefault": true
+                        },
+                        "presentation": {
+                                "echo": false,
+                                "group": "label"
+                        }
+                },
+                {
+                        "label": "remove_point",
+                        "type": "shell",
+                        "command": "rm /tmp/ssh_point",
+                        "presentation": {
+                                "echo": false,
+                                "group": "point"
+                        }
+                },
+                {
+                        "label": "touch_point",
+                        "type": "shell",
+                        "command": "touch /tmp/ssh_point",
+                        "presentation": {
+                                "echo": false,
+                                "group": "point"
+                        }
+                },
+                {
+                        "label": "detect_point",
+                        "type": "shell",
+                        "command": "sleep 3 && for i in $(seq 1 400); do if [ ! -f /tmp/ssh_point ];then echo making && sleep 2; fi; done",
+                        "presentation": {
+                                "echo": false,
+                                "group": "point"
+                        }
+                },
+                {
+                        "label": "ssh_vma",
+                        "type": "shell",
+                        "command": "for i in $(seq 1 5); do echo '******sshing******' && if [ `ps -a | grep qemu | wc -l` -eq 1 ];then  ssh  ubuntu@127.0.0.1 -p 2222; fi ; done",
+                        "presentation": {
+                                "echo": true,
+                                "clear": true,
+                                "group": "ssh"
+                        },
+                        "problemMatcher": [],
+                        "dependsOrder": "sequence",
+                        "dependsOn": [
+                                "detect_point"
+                        ]
+                },
+                {
+                        "label": "RUN-BiscuitOS",
+                        "dependsOrder": "sequence",
+                        "dependsOn": [
+                                "vm-stop",
+                                "make",
+                                "start-biscuitos"
+                        ]
+                },
+                {
+                        "label": "DEBUG-BiscuitOS",
+                        "dependsOrder": "sequence",
+                        "dependsOn": [
+                                "vm-stop",
+                                "make",
+                                "debug-biscuitos"
+                        ]
+                },
+                {
+                        "label": "RUN-arm64",
+                        "dependsOrder": "sequence",
+                        "dependsOn": [
+                                "remove_point",
+                                "vm-stop",
+                                "make",
+                                "touch_point",
+                                "start-arm64-ubuntu"
+                        ]
+                },
+                {
+                        "label": "RUN-ARM64-SSH",
+                        "dependsOn": [
+                                "RUN-arm64",
+                                "ssh_vma"
+                        ],
+                        "problemMatcher": []
+                }
+        ]
+}
